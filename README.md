@@ -5,8 +5,9 @@
 |  ----  | ----  | ---- |
 | python paint.py  | 词云图 |![词云](./word_cloud_H.png)|
 | python paint2.py  | 高频词图 |![词云](./word_network_D.png)|
-| python people.py people.txt| 聊天前十|![](./time.png)|
-|python time.py time.txt| 消息时段统计|![](./people.png)|
+|python time.py time.txt| 消息时段统计|![时段统计](./time.png)|
+| python people.py people.txt| 聊天前十|![聊天排名](./people.png)|
+
  
 ## 注意
 词云和高频词 还需要改一下文件里的引用文件名等。
