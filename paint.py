@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 
 # from scipy.misc import imread
 from wordcloud import WordCloud
@@ -12,28 +12,28 @@ import jieba, pandas as pd
 from collections import Counter
 import jieba.posseg as pseg
 
-def draw_wordcloud(c):
 
+def draw_wordcloud(c):
     # d = path.dirname(__file__) #当前文件文件夹所在目录
     # color_mask =  plt.imread(r"F:\download\a.jpeg") #读取背景图片，
     cloud = WordCloud(
-        #设置字体，不指定就会出现乱码，文件名不支持中文
-        font_path = r"E:\tim\applications\records\code\simhei.ttf",
-        #font_path=path.join(d,'simsun.ttc'),
-        #设置背景色，默认为黑，可根据需要自定义为颜色
+        # 设置字体，不指定就会出现乱码，文件名不支持中文
+        font_path=r"D:\Wechat_chatRecord_dataMing\simhei.ttf",
+        # font_path=path.join(d,'simsun.ttc'),
+        # 设置背景色，默认为黑，可根据需要自定义为颜色
         background_color='white',
-        #词云形状，
+        # 词云形状，
         # mask=color_mask,
-        #允许最大词汇
+        # 允许最大词汇
         max_words=300,
-        #最大号字体，如果不指定则为图像高度
-        max_font_size=80,
-        #画布宽度和高度，如果设置了msak则不会生效
-        width=600,
-        height = 400,
-        margin = 2,
-        #词语水平摆放的频率，默认为0.9.即竖直摆放的频率为0.1
-        prefer_horizontal = 0.8
+        # 最大号字体，如果不指定则为图像高度
+        max_font_size=160,
+        # 画布宽度和高度，如果设置了msak则不会生效
+        width=1200,
+        height=800,
+        margin=2,
+        # 词语水平摆放的频率，默认为0.9.即竖直摆放的频率为0.1
+        prefer_horizontal=0.8
         # relative_scaling = 0.6,
         # min_font_size = 10
     ).generate_from_frequencies(c)
@@ -41,8 +41,9 @@ def draw_wordcloud(c):
     plt.axis("off")
     plt.show()
 
-    cloud.to_file(r"E:\tim\applications\records\code\word_cloud_H.png")
+    cloud.to_file(r"D:\Wechat_chatRecord_dataMing\word_cloud_H.png")
     # plt.savefig(r"E:\tim\applications\records\code\word_cloud_E.png", format="png")
+
 
 def get_words(txt):
     seg_list = []
@@ -52,17 +53,18 @@ def get_words(txt):
             # n, "f", "s", "nr", "ns", "nt", "nw", "nz", "PER", "LOC", "ORG", "v"
             # n nr ns nt nw nz
             seg_list.append(word)
-    c = Counter() # 计数器
+    c = Counter()  # 计数器
     for x in seg_list:
-        if len(x)>1 and x not in ("\r\n"):
-            c[x] += 1 #个数加一
+        if len(x) > 1 and x not in ("\r\n"):
+            c[x] += 1  # 个数加一
     return c.most_common(305)
     print()
     # return " ".join(seg_list)
 
-if __name__=="__main__":
 
-    xls = pd.read_excel(r'E:\tim\applications\records\xlsx\Chat_H.xlsx', header=0)
+if __name__ == "__main__":
+
+    xls = pd.read_excel(r'D:\Wechat_chatRecord_dataMing\dushiqi.xlsx', header=0)
 
     # sega = ""
     list = []
@@ -92,8 +94,6 @@ if __name__=="__main__":
     #         segb += str(xls["content"][i])
     # lista = get_words(sega)
     # listb = get_words(segb)
-
-
 
     # G = nx.Graph()  # 创建空的网络图
     # edge_list = []
